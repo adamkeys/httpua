@@ -1,6 +1,6 @@
 # http-useragent
 
-A Go package to set a customer User-Agent when placing HTTP requests using http.Client.
+A Go package to set a custom User-Agent when placing HTTP requests using http.Client.
 
 ## Usage
 
