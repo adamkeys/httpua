@@ -1,4 +1,4 @@
-// Package ua provides a HTTP client that sends a custom User-Agent.
+// Package httpua provides a HTTP client that sends a custom User-Agent.
 package httpua
 
 import "net/http"
