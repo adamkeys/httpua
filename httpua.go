@@ -12,9 +12,9 @@ func NewClient(userAgent string) *http.Client {
 // WithClient is similar to NewClient but returns a new http.Client copied from the supplied http.Client that is
 // initialized to send the supplied userAgent string for the User-Agent header.
 func WithClient(client *http.Client, userAgent string) *http.Client {
-	client = &(*client) // Copy the http.Client
-	client.Transport = newTransport(client.Transport, userAgent)
-	return client
+	newClient := *client // Copy the http.Client
+	newClient.Transport = newTransport(client.Transport, userAgent)
+	return &newClient
 }
 
 // transport implements a http.RoundTripper that sets the User-Agent for each request.

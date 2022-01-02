@@ -16,7 +16,11 @@ func TestNewClient(t *testing.T) {
 }
 
 func TestWithClient(t *testing.T) {
-	client := ua.WithClient(http.DefaultClient, userAgent)
+	httpClient := &http.Client{}
+	client := ua.WithClient(httpClient, userAgent)
+	if client == httpClient {
+		t.Fatal("client should not return the original client")
+	}
 	assertUserAgent(t, client, userAgent)
 }
 
